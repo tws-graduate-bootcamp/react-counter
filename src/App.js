@@ -6,9 +6,9 @@ class App extends Component {
   render() {
     return (
       <div>
-        <button>+</button>
+        <button onClick={() => alert('+')}>+</button>
         <span>0</span>
-        <button>-</button>
+        <button onClick={() => alert('-')}>-</button>
       </div>
     );
   }
