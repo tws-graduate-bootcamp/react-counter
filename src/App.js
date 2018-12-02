@@ -3,6 +3,10 @@ import logo from './logo.svg';
 import './App.css';
 
 class App extends Component {
+  constructor() {
+    super()
+    this.state = {number: 1}
+  }
   increase=() => {
     alert("increase number by 1")
   }
@@ -13,7 +17,7 @@ class App extends Component {
     return (
       <div>
         <button onClick={this.increase}>+</button>
-        <span>0</span>
+        <span>{this.state.number}</span>
         <button onClick={this.decrease}>-</button>
       </div>
     );
