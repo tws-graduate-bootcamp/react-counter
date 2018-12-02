@@ -6,14 +6,16 @@ class CounterGroup extends Component {
     super(prop)
     this.state = {
       counter: new Array(prop.count).fill(0),
-      sum: 1
+      sum: 0
     }
-    console.log(prop, this.state);
+  }
+  updateSum=(delta) => {
+    this.setState({sum: this.state.sum+delta})
   }
   render() {
     return (
       <div>
-        {this.state.counter.map(() => <Counter/>)}
+        {this.state.counter.map(() => <Counter onUpdate={this.updateSum}/>)}
         <span>sum: {this.state.sum}</span>
       </div>
     );
