@@ -7,7 +7,7 @@ import CounterGroup from './components/CounterGroup.js'
 class App extends Component {
   render() {
     return (
-      <CounterGroup/>
+      <CounterGroup count={3}/>
     );
   }
 }
