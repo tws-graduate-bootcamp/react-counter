@@ -8,10 +8,10 @@ class App extends Component {
     this.state = {number: 1}
   }
   increase=() => {
-    alert("increase number by 1")
+    this.setState({number: this.state.number+1})
   }
   decrease=() => {
-    alert("decrease number by 1")
+    this.setState({number: this.state.number-1})
   }
   render() {
     return (
