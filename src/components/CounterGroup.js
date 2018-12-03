@@ -5,7 +5,7 @@ class CounterGroup extends Component {
   constructor(prop) {
     super(prop)
     this.state = {
-      counter: new Array(prop.count).fill(0),
+      counter: new Array(prop.size).fill(0),
       sum: 0
     }
   }
