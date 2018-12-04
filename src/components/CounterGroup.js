@@ -4,18 +4,28 @@ import Counter from './Counter.js'
 class CounterGroup extends Component {
   constructor(prop) {
     super(prop)
-    this.state = {
-      counter: new Array(prop.size).fill(0),
-      sum: 0
-    }
+    this.state = this.getInitState(prop.size)
   }
-  updateSum=(delta) => {
+  getInitState = (size) => ({
+    counter: new Array(size).fill(Date.now()),
+    sum: 0
+  })
+  updateSum = (delta) => {
     this.setState({sum: this.state.sum+delta})
+  }
+  regenerateCounters = () => {
+    this.setState(this.getInitState(+this.refs.size.value))
   }
   render() {
     return (
       <div>
-        {this.state.counter.map(() => <Counter onUpdate={this.updateSum}/>)}
+        <button onClick={this.regenerateCounters}>show me</button>
+        <input type="number" ref="size"/>counters
+        {this.state.counter.map((_, i) => <
+          Counter
+            key={_+i}
+            onUpdate={this.updateSum}
+        />)}
         <span>sum: {this.state.sum}</span>
       </div>
     );
